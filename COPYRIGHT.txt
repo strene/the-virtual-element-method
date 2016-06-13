@@ -1,5 +1,5 @@
-VEM2D and VEM3D is a collection of MATLAB functions for constituting
-an implementation of the virtual element method in two and three
+VEM2D and VEM3D is a collection of MATLAB functions constituting an
+implementation of the virtual element method in two and three
 dimensions, for first and second order. VEM2D and VEM3D is Copyright
 (C) 2016 Øystein Strengehagen Klemetsdal.
 
@@ -14,7 +14,8 @@ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
 General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with VEM2D. If not, see <http://www.gnu.org/licenses/>.
+along with VEM2D and VEM3D. If not, see
+<http://www.gnu.org/licenses/>.
 
 If you use VEM2D or VEM3D in any program or publication, please
 acknowledge its author by adding a reference to:
