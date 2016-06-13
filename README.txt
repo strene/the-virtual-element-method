@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This MATLAB MATLAB code has been developed as part of my master's
+This MATLAB code has been developed as part of my master's
 thesis at the Norwegian University of Science and Technology during
 the spring term of 2016.
 
