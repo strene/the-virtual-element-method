@@ -1,52 +1,73 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-This MATLAB matlab code has been developed as part of my Master's
+This MATLAB MATLAB code has been developed as part of my master's
 thesis at the Norwegian University of Science and Technology during
-the spring te rm 2016.
+the spring term of 2016.
 
 	     Øystein Strengehagen Klemetsdal (oystein.klemetsdal@gmail.com)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-Voronoi-2D contains several functions for generating unstructured Voronoi
-grids (or Pebi grids) in MRST (http://www.sintef.no/MRST). The main focus 
-of this software is the construction of Pebi grids conforming to faults, 
-fractures or other geological structures. 
+This repository contains an implementation of the virtual element
+method for solving differential equations in two and three dimensions
+using the open source MATLAB reservoir simulation toolbox (MRST, see
+http://www.sintef.no/MRST). It is implemented for the propose of
+testing the method, and comparing it to industry standard reservoir
+simulation methods and grids.
 
-Voronoi-2D supports two different types of structures.
-For the first structure type one wants cell edges to follow the 
-structure. For the second type, one wants cell centroids to follow 
-the structure. In Voronoi-2D is the first type of structure is exclusively 
-called for faults, and the second type for wells. 
+VEM2D contains the following main functions:
 
+---------------------------------------------------------------------------
+- VEM2D_addBC: Adds boundary condition to existing or empty boundary
+  condition struct.
+	
+- VEM2D_bc: Incorporates boundary conditions in global stiffness
+  matrix and global load vector.
 
-Voronoi-2D contains the following functions
-Functions:
-    compositePebiGrid
-    createFaultGridPoints
-    createWellGridPoints
-    pebiGrid
-    removeConflicPoints2
-    splitAtInt
+- VEM2D_glob: Assembles global stiffness matrix and load vector from
+  local ones.
 
-- compositePebiGrid is an interface function that can be called to create 
-a valid MRST grid structure. It creates a Pebi grid conforming to faults 
-and wells. The functions creates a semi-structured grid, by inserting 
-voronoi seeds around wells and fractures.
+- VEM2D_loc: Computes local stiffness matrices and load vectors.
 
-- createFaultGridPoints creates points equiv-distant on each side of the
-given faults. 
+- VEM2D: Solves a given differential equation using the above
+  functions.
+---------------------------------------------------------------------------
 
-- createWellGridPoints places points along given well-lines.
+In addition, it contains some auxiliary functions. See each
+individual file for details and syntax.
 
-- pebiGrid is an interface function that can be called to create a valid 
-MRST grid structure. It creates a fully unstructured pebi grid that 
-conforms to faults and wells. It uses the software DistMesh to create the 
-background grid. DistMesh is a software for creating unstructured delaunay 
-triangulations: Per-Olof Persson and Gilbert Strang, "A Simple Mesh 
-Generator in MATLAB," SIAM Review Vol. 46 (2) 2004.
+Examples of usage of the software can be found in VEM2D/examples.m.
 
-- removeConflicPoints2 removes any points from one set that are too close 
-to points from another set. This function can be used to remove small or
-constricted cells.
+VEM3D contains the following main functions:
 
-- splitAtInt is a function that splits a set of paths at each intersection.
-It can be used to split all faults and wells at their intersections.
+---------------------------------------------------------------------------
+- VEM3D_addBC: Adds boundary condition to existing or empty boundary
+  condition struct.
+	
+- VEM3D_bc: Incorporates boundary conditions in global stiffness
+  matrix and global load vector.
+
+- VEM3D_faceProjectors: Calculates the VEM projection operators for
+  each face in the grid.
+
+- VEM3D_glob: Assembles global stiffness matrix and load vector from
+  local ones.
+
+- VEM3D_loc: Computes local stiffness matrices and load vectors.
+
+- VEM3D: Solves a given differential equation using the above
+  functions.
+---------------------------------------------------------------------------
+
+In addition, it contains some auxiliary functions. See each
+individual file for details and syntax.
+
+Examples of usage of the software can be found in VEM3D/examples.m.
+
+For further details, see:
+
+Øystein Strengehagen Klemetsdal,
+The virtual element method as a common framework for finite element
+and finite difference methods - Numerical and theoretical analysis,
+June 2016,
+Masters thesis,
+Department of Mathematics,
+Norwegian University of Science and Technology.
